@@ -1,0 +1,14 @@
+{
+  "name": "@vcs/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Enums, socket events and helpers shared by the API, the web app and the admin panel",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src"
+  ]
+}

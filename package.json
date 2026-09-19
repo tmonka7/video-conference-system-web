@@ -1,0 +1,30 @@
+{
+  "name": "video-conference-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Video Conferencing System - monorepo (frontend, backend, admin panel)",
+  "engines": {
+    "node": ">=18.0.0 <19"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:server dev:frontend dev:admin",
+    "dev:server": "npm run dev --workspace @vcs/server",
+    "dev:frontend": "npm run dev --workspace @vcs/frontend",
+    "dev:admin": "npm run dev --workspace @vcs/admin",
+    "build": "npm run build --workspace @vcs/frontend && npm run build --workspace @vcs/admin",
+    "start": "npm run start --workspace @vcs/server",
+    "test": "npm run test --workspace @vcs/server",
+    "lint": "npm run lint --workspaces --if-present",
+    "seed": "npm run seed --workspace @vcs/server",
+    "db:up": "docker compose up -d mongo",
+    "db:down": "docker compose down"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3"
+  }
+}

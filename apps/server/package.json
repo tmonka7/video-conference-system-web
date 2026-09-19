@@ -1,0 +1,40 @@
+{
+  "name": "@vcs/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Video Conferencing System - REST API, MongoDB persistence and WebRTC signaling gateway",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "@vcs/shared": "1.0.0",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.13",
+    "multer": "^1.4.5-lts.1",
+    "pino": "^9.3.2",
+    "pino-http": "^10.2.0",
+    "socket.io": "^4.7.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^9.4.1",
+    "pino-pretty": "^11.2.2",
+    "socket.io-client": "^4.7.5",
+    "supertest": "^7.0.0",
+    "vitest": "^2.0.5"
+  }
+}

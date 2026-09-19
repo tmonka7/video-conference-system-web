@@ -34,12 +34,17 @@ export default function Login() {
         <p className="mt-2 text-sm text-slate-500">
           Administrator accounts only. Everyone else should use the web app.
         </p>
+        {import.meta.env.DEV && (
+          <p className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            Demo login: admin@company.com / Password123. Run <code>npm run seed</code> first.
+          </p>
+        )}
 
         <form className="mt-8 space-y-5" onSubmit={handleSubmit} noValidate>
           <Input
-            label="Email"
+            label="Email or phone"
             name="identifier"
-            type="email"
+            type="text"
             autoComplete="username"
             placeholder="admin@company.com"
             value={form.identifier}

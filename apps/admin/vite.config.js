@@ -10,5 +10,12 @@ export default defineConfig({
   resolve: {
     alias: { '@': path.resolve(root, 'src') },
   },
-  server: { port: 5174 },
+  server: {
+    host: '0.0.0.0',
+    port: 5174,
+    hmr: {
+      host: 'localhost',
+      port: 5174,
+    },
+  },
 });

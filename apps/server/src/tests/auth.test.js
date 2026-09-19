@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { describe, expect, it } from 'vitest';
-import { api, auth, createUser, testApp } from './helpers.js';
+import { api, auth, createAdmin, createUser, testApp } from './helpers.js';
 
 describe('auth', () => {
   it('registers a new account and returns a session', async () => {
@@ -42,6 +42,17 @@ describe('auth', () => {
       .expect(200);
 
     expect(response.body.data.user.id).toBe(user.id);
+  });
+
+  it('allows a SuperAdmin to sign in with the seeded credentials', async () => {
+    const user = await createAdmin();
+    const response = await request(testApp())
+      .post(`${api}/auth/login`)
+      .send({ identifier: user.email, password: user.password })
+      .expect(200);
+
+    expect(response.body.data.user.id).toBe(user.id);
+    expect(response.body.data.user.role).toBe('superadmin');
   });
 
   it('gives the same error for a wrong password and an unknown account', async () => {

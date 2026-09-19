@@ -13,8 +13,11 @@ export default defineConfig({
     },
   },
   server: {
+    host: '0.0.0.0',
     port: 5173,
-    // getUserMedia needs a secure context; localhost counts as one.
-    host: '127.0.0.1',
+    hmr: {
+      host: 'localhost',
+      port: 5173,
+    },
   },
 });
